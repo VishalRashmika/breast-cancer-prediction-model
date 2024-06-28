@@ -12,7 +12,7 @@ def get_location_names():
 
     return response
 
-@app.route('/predict_home_price', methods=['GET', 'POST'])
+@app.route('/predict_breast_cancer', methods=['GET', 'POST'])
 def predict_home_price():
     # print(request.form['t_mean_radius'])
     mean_radius = float(request.form['t_mean_radius'])
@@ -35,6 +35,6 @@ def predict_home_price():
     return response
 
 if __name__ == "__main__":
-    print("Starting Python Flask Server For Home Price Prediction...")
+    print("Starting Python Flask Server For Breast Cancer Pediction...")
     util.load_saved_artifacts()
     app.run()
