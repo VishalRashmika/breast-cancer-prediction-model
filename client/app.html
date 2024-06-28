@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>Breast Cancer Prediction</title>
-	<center><h1>Breast Cancer Prediction Model</h1></center>
+	<center><h1>Breast Cancer Prediction</h1></center>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="app.js"></script>
 	<link rel="stylesheet" href="app.css">
+	<link rel="icon" href="./logo.png" width="10px" type="image/icon type">
+
 </head>
 <body>
 <div class="img"></div>
@@ -14,21 +16,21 @@
 </center>
 <form class="form">
 	<!-- mean_radius,mean_texture,mean_perimeter,mean_area,mean_smoothness -->
-	<h2>Mean Radius</h2>
-    <input class="area"  type="text" id="uimean_radius" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value">
-	<h2>Mean Texture</h2>
-    <input class="area"  type="text" id="uimean_texture" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value">
+	<center><h2>Mean Radius</h2></center>
+    <Center><input class="area"  type="text" id="uimean_radius" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value"></Center>
+	<center><h2>Mean Texture</h2></center>
+    <Center><input class="area"  type="text" id="uimean_texture" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value"></Center>
 </form>
 <form class="form">
-	<h2>Mean Perimeter</h2>
-    <input class="area"  type="text" id="uimean_perimeter" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value">
-	<h2>Mean Area</h2>
-	<input class="area"  type="text" id="uimean_area" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value">
-	<h2>Mean Smoothness</h2>
-	<input class="area"  type="text" id="uimean_smoothness" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value">
+	<center><h2>Mean Perimeter</h2></center>
+    <Center><input class="area"  type="text" id="uimean_perimeter" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value"></Center>
+	<center><h2>Mean Area</h2></center>
+	<Center><input class="area"  type="text" id="uimean_area" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value"></Center>
+	<center><h2>Mean Smoothness</h2></center>
+	<Center><input class="area"  type="text" id="uimean_smoothness" class="floatLabel" name="Squareft" value="0" placeholder="Enter Value"></Center>
 
-	<button class="submit" onclick="onClickedEstimatePrice()" type="button">Predict</button>
-	<div id="uiEstimatedPrice" class="result">	<h2>Positive :(</h2> </div>
+	<center><button class="submit" onclick="onClickedEstimatePrice()" type="button">Predict</button></center>
+	<center><div id="uiEstimatedPrice" class="result">	<h2></h2> </div></center>
 </form>
 </body>
 </html>
