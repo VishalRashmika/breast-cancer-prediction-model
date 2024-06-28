@@ -5,38 +5,34 @@ function onClickedEstimatePrice() {
   var mean_perimeter = document.getElementById("uimean_perimeter");
   var mean_area = document.getElementById("uimean_area");
   var mean_smoothness = document.getElementById("uimean_smoothness");
+  var estPrice = document.getElementById("uiEstimatedPrice");
 
-  // var url = "http://127.0.0.1:5000/predict_home_price"; //Use this if you are NOT using nginx which is first 7 tutorials
-  var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
+  var url = "http://127.0.0.1:5000/predict_breast_cancer"; //Use this if you are NOT using nginx which is first 7 tutorials
+  //var url = "/api/predict_home_price"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
 
   $.post(url, {
-      total_sqft: parseFloat(sqft.value),
-      bhk: bhk,
-      bath: bathrooms,
-      location: location.value
+      t_mean_radius: parseFloat(mean_radius.value),
+      t_mean_texture: parseFloat(mean_texture.value),
+      t_mean_perimeter: parseFloat(mean_perimeter.value),
+      t_mean_area: parseFloat(mean_area.value),
+      t_mean_smoothness: parseFloat(mean_smoothness.value)
   },function(data, status) {
       console.log(data.estimated_price);
-      estPrice.innerHTML = "<h2>" + data.estimated_price.toString() + " Lakh</h2>";
+      var prediction = data.prediction;
+      console.log(prediction)
+      if (prediction == 1){
+        estPrice.innerHTML = "<h2>" + "Positive" + " :(</h2>";
+      }
+      else if (prediction == 0){
+        estPrice.innerHTML = "<h2>" + "Negative" + " :)</h2>";
+      }
+      // estPrice.innerHTML = "<h2>" + data.prediction.toString() + " Lakh</h2>";
       console.log(status);
   });
 }
 
 function onPageLoad() {
-  console.log( "document loaded" );
-  // var url = "http://127.0.0.1:5000/get_location_names"; // Use this if you are NOT using nginx which is first 7 tutorials
-  var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
-  $.get(url,function(data, status) {
-      console.log("got response for get_location_names request");
-      if(data) {
-          var locations = data.locations;
-          var uiLocations = document.getElementById("uiLocations");
-          $('#uiLocations').empty();
-          for(var i in locations) {
-              var opt = new Option(locations[i]);
-              $('#uiLocations').append(opt);
-          }
-      }
-  });
+  console.log( "page loaded" );
 }
 
 window.onload = onPageLoad;
