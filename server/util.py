@@ -8,27 +8,23 @@ __data_columns = None
 __model = None
 
 def get_estimated_price(mean_radius,mean_texture,mean_perimeter,mean_area,mean_smoothness):
-    # try:
-    #     loc_index = __data_columns.index(location.lower())
-    # except:
-    #     loc_index = -1
 
-    # x = np.zeros(4)
-    # x[0] = mean_radius
-    # x[1] = mean_texture
-    # x[2] = mean_perimeter
-    # x[3] = mean_area
-    # x[4] = mean_smoothness
-    # if loc_index>=0:
-    #     x[loc_index] = 1
+    # error handling test:
+    if (mean_radius == 0 and mean_texture == 0 and mean_perimeter == 0 and mean_area == 0 and mean_smoothness == 0 ):
+        return [0]
+
     input1 = [mean_radius]
-    input1 = [mean_texture]
-    input1 = [mean_perimeter]
-    input1 = [mean_area]
-    input1 = [mean_smoothness]
+    input2 = [mean_texture]
+    input3 = [mean_perimeter]
+    input4 = [mean_area]
+    input5 = [mean_smoothness]
 
     data = {
-        "x" : input
+        "mean_radius" : input1,
+        "mean_texture" : input2,
+        "mean_perimeter" : input3,
+        "mean_area" : input4,
+        "mean_smoothness": input5
     }
     data_set = pd.DataFrame(data)
 
